@@ -1,0 +1,31 @@
+<div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()"
+>
+<div class="row">
+  <ng-container
+    *ngFor="let item of flickerResponse?.items"
+    class="card"
+    style="width: 18rem;"
+  >
+    <div class="col">
+      <div class="card">
+        <img [src]="item.media.m" class="card-img-top" alt="item.title" [title]="item.title" />
+        <div class="card-body">
+          <p class="card-text">
+            Uploaded by {{ item.author_id }} on {{ item.published | date:'medium' }}
+          </p>
+          <p class="card-text">{{ item.title }}</p>
+        </div>
+        <hr />
+        <div class="card-body">
+          <p class="card-text">{{ item.tags }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+</div>
